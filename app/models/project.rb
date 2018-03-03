@@ -8,4 +8,8 @@ class Project
     @tasks = []
   end
   attr_accessor :tasks
+
+  def total_size
+    @tasks.sum(&:size)
+  end
 end

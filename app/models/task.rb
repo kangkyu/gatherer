@@ -1,7 +1,9 @@
 class Task
-  def initialize
-    @completed = false
+  def initialize(completed: false, size: nil)
+    @completed = completed
+    @size = size
   end
+  attr_reader :size
 
   def complete?
     @completed
