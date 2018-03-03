@@ -1,9 +1,10 @@
 class Task
-  def initialize(completed: false, size: nil)
-    @completed = completed
-    @size = size
-  end
+
   attr_reader :size
+  def initialize(options = {})
+    @completed = options[:completed]
+    @size = options[:size]
+  end
 
   def complete?
     @completed
