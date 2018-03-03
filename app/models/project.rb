@@ -13,7 +13,7 @@ class Project
     tasks.sum(&:size)
   end
 
-  # def remaining_size
-  #   tasks.reject(&:complete?).sum(&:size)
-  # end
+  def remaining_size
+    tasks.reject(&:complete?).sum(&:size)
+  end
 end
