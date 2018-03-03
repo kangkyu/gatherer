@@ -1,7 +1,7 @@
 class Project
 
   def done?
-    @tasks.none?
+    @tasks.all?(&:complete?)
   end
 
   def initialize
