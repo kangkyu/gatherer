@@ -1,6 +1,11 @@
 class Project
 
   def done?
-    true
+    @tasks.none?
   end
+
+  def initialize
+    @tasks = []
+  end
+  attr_accessor :tasks
 end
