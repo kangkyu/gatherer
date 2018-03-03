@@ -13,4 +13,12 @@ class Task
   def mark_completed
     @completed = true
   end
+
+  def part_of_velocity?
+    false
+  end
+
+  def points_toward_velocity
+    part_of_velocity? ? size : 0
+  end
 end
