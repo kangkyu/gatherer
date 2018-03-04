@@ -1,16 +1,13 @@
-class Project
+class Project < ActiveRecord::Base
 
-  attr_accessor :tasks, :due_date
-  def initialize
-    @tasks = []
-  end
+  has_many :tasks
 
   def done?
     tasks.reject(&:complete?).empty?
   end
 
   def total_size
-    tasks.sum(&:size)
+    tasks.to_a.sum(&:size)
   end
 
   def remaining_size
@@ -18,7 +15,7 @@ class Project
   end
 
   def completed_velocity
-    tasks.sum(&:points_toward_velocity)
+    tasks.to_a.sum(&:points_toward_velocity)
   end
 
   def current_rate
