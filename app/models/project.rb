@@ -16,4 +16,8 @@ class Project
   def remaining_size
     tasks.reject(&:complete?).sum(&:size)
   end
+
+  def completed_velocity
+    tasks.sum(&:points_toward_velocity)
+  end
 end
