@@ -48,5 +48,9 @@ RSpec.describe Project do
     it "knows its rate" do
       expect(project.current_rate).to eq(1.0 / 7)
     end
+
+    it "knows its projected time remaining" do
+      expect(project.projected_days_remaining).to eq(35)
+    end
   end
 end
