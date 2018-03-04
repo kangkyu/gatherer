@@ -1,17 +1,17 @@
 class Task
 
-  attr_reader :size
+  attr_reader :size, :completed_at
   def initialize(options = {})
-    @completed = options[:completed]
+    mark_completed(options[:completed_at]) if options[:completed_at]
     @size = options[:size]
   end
 
   def complete?
-    @completed
+    completed_at.present?
   end
 
-  def mark_completed
-    @completed = true
+  def mark_completed(date = nil)
+    @completed_at = date || Time.current
   end
 
   def part_of_velocity?
