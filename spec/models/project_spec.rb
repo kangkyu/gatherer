@@ -52,5 +52,12 @@ RSpec.describe Project do
     it "knows its projected time remaining" do
       expect(project.projected_days_remaining).to eq(35)
     end
+
+    it "knows if it is on schedule" do
+      project.due_date = 1.week.from_now
+      expect(project).not_to be_on_schedule
+      project.due_date = 6.months.from_now
+      expect(project).to be_on_schedule
+    end
   end
 end
