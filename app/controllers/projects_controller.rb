@@ -5,11 +5,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create!(name: params[:project][:name])
-    params[:project][:tasks].each_line do |line|
-      title, size = line.split(":")
-      @project.tasks.create(title: title, size: size.to_i)
-    end
+    @action = CreatesProject.new(name: params[:project][:name], task_string: params[:project][:tasks])
+    @action.create
     redirect_to projects_url
   end
 
