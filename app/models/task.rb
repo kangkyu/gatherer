@@ -15,7 +15,8 @@ class Task
   end
 
   def part_of_velocity?
-    false
+    return false unless complete?
+    completed_at > 3.weeks.ago
   end
 
   def points_toward_velocity
